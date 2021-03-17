@@ -10,7 +10,9 @@
 
       if ($a == 2) {
         echo "Sacar Dinheiro";
+
       } else {
+          
         echo "Opção não encontrada";
       }
     ?>
