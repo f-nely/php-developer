@@ -15,5 +15,5 @@ $resultado_usuario = mysqli_query($conn, $result_usuario);
 while ($row_usuarios = mysqli_fetch_assoc($resultado_usuario)) {
     echo "ID: " . $row_usuarios['id'] . "<br>";
     echo "Nome: " . $row_usuarios['nome'] . "<br>";
-    echo "E-mail: " . $row_usuarios['email'] . "<br>";
+    echo "E-mail: " . $row_usuarios['email'] . "<br><hr>";
 }
