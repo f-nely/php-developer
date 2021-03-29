@@ -7,7 +7,8 @@ $dbname = 'celke';
 
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
-$result_usuario = "SELECT id, email, niveis_acesso_id FROM usuarios";
+$result_usuario = "SELECT user.id, user.email, user.niveis_acesso_id 
+FROM usuarios AS user";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
