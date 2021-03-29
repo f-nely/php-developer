@@ -8,7 +8,7 @@ $dbname = 'celke';
 
 // cria conexão
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-$result_usuario = "SELECT * FROM usuarios WHERE situacao_id = '1' OR niveis_acesso_id = '1'";
+$result_usuario = "SELECT * FROM usuarios WHERE situacao_id = '2' OR niveis_acesso_id = '3'";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
