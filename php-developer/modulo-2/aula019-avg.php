@@ -11,4 +11,4 @@ $result_usuarios = "SELECT AVG(qnt_acessos) AS qnt_acessos FROM usuarios";
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 $row_usuario = mysqli_fetch_assoc($resultado_usuarios);
 
-echo "Média de Acesso: " . $row_usuario['qnt_acessos'] . "<br>";
+echo "Média de Acesso: " . (int) $row_usuario['qnt_acessos'] . "<br>";
