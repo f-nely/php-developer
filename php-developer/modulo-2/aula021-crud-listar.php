@@ -18,14 +18,15 @@
             $resultado_qnt_user = mysqli_query($conn, $result_qnt_user);
             $row_qnt_user = mysqli_fetch_assoc($resultado_qnt_user);
 
-            echo "<h1>Quantidade de usuários: " . $row_qnt_user['qnt_usuarios'] . "</h1>";
+            echo "<h3>Quantidade de usuários: " . $row_qnt_user['qnt_usuarios'] . "</h3>";
 
             $result_usuarios = "SELECT user.*,
             sit.nome nome_sit,
             nivac.nome nome_niv_ac
             FROM usuarios user
             INNER JOIN situacaos sit ON sit.id = user.situacao_id
-            INNER JOIN niveis_acessos nivac ON nivac.id = user.niveis_acesso_id";
+            INNER JOIN niveis_acessos nivac ON nivac.id = user.niveis_acesso_id
+            ORDER BY id";
             $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
             while ($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
