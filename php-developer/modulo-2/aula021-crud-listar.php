@@ -14,6 +14,8 @@
 
             $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
+            echo "<h1>Listar usuários</h1>";
+
             $result_qnt_user = "SELECT COUNT(id) AS qnt_usuarios FROM usuarios";
             $resultado_qnt_user = mysqli_query($conn, $result_qnt_user);
             $row_qnt_user = mysqli_fetch_assoc($resultado_qnt_user);
