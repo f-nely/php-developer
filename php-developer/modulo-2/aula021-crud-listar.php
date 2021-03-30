@@ -14,6 +14,12 @@
 
             $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
+            $result_qnt_user = "SELECT COUNT(id) AS qnt_usuarios FROM usuarios";
+            $resultado_qnt_user = mysqli_query($conn, $result_qnt_user);
+            $row_qnt_user = mysqli_fetch_assoc($resultado_qnt_user);
+
+            echo "<h1>Quantidade de usuários: " . $row_qnt_user['qnt_usuarios'] . "</h1>";
+
             $result_usuarios = "SELECT user.*,
             sit.nome nome_sit,
             nivac.nome nome_niv_ac
