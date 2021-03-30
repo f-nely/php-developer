@@ -14,15 +14,20 @@
 
             $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
-            $result_usuarios = "SELECT * FROM usuarios";
+            $result_usuarios = "SELECT user.*,
+            sit.nome nome_sit,
+            nivac.nome nome_niv_ac
+            FROM usuarios user
+            INNER JOIN situacaos sit ON sit.id = user.situacao_id
+            INNER JOIN niveis_acessos nivac ON nivac.id = user.niveis_acesso_id";
             $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
             while ($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
                 echo "ID: " . $row_usuario['id'] . "<br>"; 
                 echo "Nome: " . $row_usuario['nome'] . "<br>"; 
                 echo "E-mail: " . $row_usuario['email'] . "<br>"; 
-                echo "Situação: " . $row_usuario['situacao_id'] . "<br>"; 
-                echo "Níveis de acesso: " . $row_usuario['niveis_acesso_id'] . "<br><hr>"; 
+                echo "Situação: " . $row_usuario['nome_sit'] . "<br>"; 
+                echo "Níveis de acesso: " . $row_usuario['nome_niv_ac'] . "<br><hr>"; 
             }
         ?>
     </body>
