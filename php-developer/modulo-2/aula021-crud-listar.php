@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -15,6 +19,10 @@
             $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
             echo "<h1>Listar usuários</h1>";
+            if (isset($_SESSION['msg'])) {
+                echo "<p>" . $_SESSION['msg'] . "</p>";
+                unset($_SESSION['msg']);
+            }
 
             $result_qnt_user = "SELECT COUNT(id) AS qnt_usuarios FROM usuarios";
             $resultado_qnt_user = mysqli_query($conn, $result_qnt_user);
