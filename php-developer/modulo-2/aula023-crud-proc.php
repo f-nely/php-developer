@@ -9,8 +9,11 @@ $dbname = 'celke';
 
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
+/* $nome = $_POST['nome'];
+$email = $_POST['email']; */
+
+$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 $result_usuarios = "INSERT INTO usuarios 
 (nome, email, situacao_id, niveis_acesso_id, created)
