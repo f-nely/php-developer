@@ -17,7 +17,9 @@ session_start();
             $dbname = "celke";
 
             $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-
+            ?>
+                <a href="aula022-crud-inserir.php">Cadastrar</a>
+            <?php
             echo "<h1>Listar usuários</h1>";
             if (isset($_SESSION['msg'])) {
                 echo "<p>" . $_SESSION['msg'] . "</p>";
