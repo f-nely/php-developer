@@ -20,7 +20,9 @@ VALUES
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
 if (mysqli_insert_id($conn)) {
+    $_SESSION['msg'] = "<span style='color: rgb(0, 255,0);'>Usuário cadastrado com sucesso</span>";
     header("Location: aula021-crud-listar.php");
 } else {
+    $_SESSION['msg'] = "<span style='color: rgb(255, 0,0);'>Usuário não foi cadastrado com sucesso</span>";
     header("Location: aula023-crud-inserir.php");
 }
