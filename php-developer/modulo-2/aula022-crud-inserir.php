@@ -9,6 +9,7 @@ session_start();
     <title>Crud - Cadastrar</title>
 </head>
 <body>
+    <a href="aula021-crud-listar.php">Listar</a>
     <h1>Cadastrar Usuário</h1>
     <?php
         if (isset($_SESSION['msg'])) {
