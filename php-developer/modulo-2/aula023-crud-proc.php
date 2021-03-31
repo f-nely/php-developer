@@ -16,3 +16,9 @@ VALUES
 ('$nome', '$email', 2, 3, NOW())";
 
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
+
+if (mysqli_insert__id($conn)) {
+    header("Location: aula021-crud-listar.php");
+} else {
+    header("Location: aula023-crud-inserir.php");
+}
