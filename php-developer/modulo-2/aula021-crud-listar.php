@@ -40,7 +40,8 @@ include_once('conexao.php');
                 echo "E-mail: " . $row_usuario['email'] . "<br>"; 
                 echo "Situação: " . $row_usuario['nome_sit'] . "<br>"; 
                 echo "Níveis de acesso: " . $row_usuario['nome_niv_ac'] . "<br>"; 
-                echo "<a href='aula024-crud-editar.php?id=" . $row_usuario['id'] . "'>Editar</a><hr>"; 
+                echo "<a href='aula024-crud-editar.php?id=" . $row_usuario['id'] . "'>Editar</a><br>"; 
+                echo "<a href='aula026-crud-apagar.php?id=" . $row_usuario['id'] . "'>Apagar</a><hr>"; 
             }
         ?>
     </body>
