@@ -1,8 +1,9 @@
 <?php
 include_once('conexao.php');
 $id  = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-echo $id;
-
+$result_usuarios = "SELECT * FROM usuarios WHERE id = '$id' LIMIT";
+$resultado_usuarios = mysqli_query($conn, $result_usuarios);
+$row_usuario = mysqli_fetch_assoc($resultado_usuarios);
 ?>
 
 <!DOCTYPE html>
