@@ -27,10 +27,10 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
     ?>
     <form method="POST" action="aula025-crud-proc.php">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome"><br><br>
+        <input type="text" name="nome" id="nome" value="<?php echo $row_usuario['nome'];?>"><br><br>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email"><br><br>
+        <input type="email" name="email" id="email" value="<?php echo $row_usuario['email'];?>"><br><br>
 
         <input type="submit" value="Editar">
     </form>
