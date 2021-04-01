@@ -46,7 +46,8 @@ session_start();
                 echo "Nome: " . $row_usuario['nome'] . "<br>"; 
                 echo "E-mail: " . $row_usuario['email'] . "<br>"; 
                 echo "Situação: " . $row_usuario['nome_sit'] . "<br>"; 
-                echo "Níveis de acesso: " . $row_usuario['nome_niv_ac'] . "<br><hr>"; 
+                echo "Níveis de acesso: " . $row_usuario['nome_niv_ac'] . "<br>"; 
+                echo "<a href='aula024-crud-editar.php?id=" . $row_usuario['id'] . "'>Editar</a><hr>"; 
             }
         ?>
     </body>
