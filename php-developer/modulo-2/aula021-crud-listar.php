@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('conexao.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,15 +11,7 @@ session_start();
     </head>
 
     <body>
-        <?php
-            $servidor = "localhost";
-            $usuario = "root";
-            $senha = "704802";
-            $dbname = "celke";
-
-            $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-            ?>
-                <a href="aula022-crud-inserir.php">Cadastrar</a>
+            <a href="aula022-crud-inserir.php">Cadastrar</a>
             <?php
             echo "<h1>Listar usuários</h1>";
             if (isset($_SESSION['msg'])) {
