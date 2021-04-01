@@ -32,6 +32,8 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" value="<?php echo $row_usuario['email'];?>"><br><br>
 
+        <input type="hidden" name="id" id="id" value="<?php echo $row_usuario['id'];?>">
+
         <input type="submit" value="Editar">
     </form>
 
