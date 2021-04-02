@@ -66,4 +66,11 @@ foreach($tabelas as $tabela) {
     $result .= "\n\n";
 }
 
-echo $result;
+//echo $result;
+
+//criar o diretório de backup
+$diretorio = 'backup/';
+if (!is_dir($diretorio)) {
+    mkdir($diretorio, 0777, true);
+    chmod($diretorio, 0777);
+}
