@@ -30,6 +30,40 @@ foreach($tabelas as $tabela) {
     $row_cr_col = mysqli_fetch_row($resultado_cd_col);
     //var_dump($row_cd_col);
     $result .= "\n\n".$row_cr_col[1] . ";\n\n";
+
+    //percorrer o array de colunas
+    for ($i = 0; $i < $num_colunas; $i++) { 
+        //ler o valor de cada coluna no banco de dados
+        while ($row_tp_col = mysqli_fetch_row($resultado_colunas)) {
+            //var_dump($row_tp_col);
+            //criar a instrução da query para inserir os dados
+            $result .= 'INSERT INTO '.$tabela. ' VALUES (';
+
+            //ler os dados da tabela
+            for ($j = 0; $j < $num_colunas; $j++) { 
+                //addslashes - adiciona barras invertidas a uma string 
+                $row_tp_col[$j] = addslashes($row_tp_col[$j]);
+                //str_replace - substitui todas as ocorrências da string \n pelo \\n
+                $row_tp_col[$j] = str_replace("\n", "\\n",$row_tp_col[$j]);
+
+                if (isset($row_tp_col[$j])) {
+                    if (!empty($row_tp_col[$j])) {
+                        $result .= '"'.$row_tp_col[$j].'"';
+                    } else {
+                        $result .= 'NULL';
+                    }
+                } else {
+                    $result .= 'NULL';
+                }
+
+                if ($j < ($num_colunas - 1)) {
+                    $result .= ',';
+                }
+            }
+            $result .= ");\n";
+        }
+    }
+    $result .= "\n\n";
 }
 
 echo $result;
