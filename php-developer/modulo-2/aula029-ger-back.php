@@ -1,6 +1,7 @@
 <?php
 
-include_once('conexao.php');
+session_start();
+//include_once('conexao.php');
 
 // ler as tabelas
 $result_tabela = "SHOW TABLES";
@@ -97,6 +98,7 @@ if (file_exists($download)) {
     header("Content-Transfer-Encoding: binary");
     header("Content-Length: " . filesize($download));
     readfile($download);
+    $_SESSION['msg'] = "<span style='color: green;'>Exportado BD com sucesso</span>";
 } else {
-
+    $_SESSION['msg'] = "<span style='color: red;'>Erro ao exportar o BD</span>";
 }
