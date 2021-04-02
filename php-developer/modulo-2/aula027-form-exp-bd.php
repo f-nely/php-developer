@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +14,15 @@
 <body>
 
     <h1>Exportar base de dados</h1>
+
+    <?php
+    
+    if (isset($_SESSION['msg'])) {
+        echo '<p>' . $_SESSION['msg'] . '</p>';
+        unset($_SESSION['msg']);
+    }
+
+    ?>
 
     <form method="POST" action="aula028-proc-exp-bd.php" enctype="multipart/form-data">
 
