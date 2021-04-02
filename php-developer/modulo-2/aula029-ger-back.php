@@ -12,6 +12,7 @@ while ($row_tabela = mysqli_fetch_row($resultado_tabela)) {
 
 //var_dump($tabelas);
 
+$result = "";
 foreach($tabelas as $tabela) {
     //echo $tabela . '<br>';
     //pesquisar o nome das colunas
@@ -19,4 +20,8 @@ foreach($tabelas as $tabela) {
     $resultado_colunas = mysqli_query($conn, $result_colunas);
     $num_colunas = mysqli_num_fields($resultado_colunas);
     //echo $tabela . " - " . $num_colunas . "<br>";
+
+    //cria a instrução para apagar a tabela caso a mesma exista
+    $result .= 'DROP TABLE IF EXISTS '.$tabela.';';
+    
 }
