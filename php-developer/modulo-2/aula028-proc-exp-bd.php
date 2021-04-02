@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // recebendo os dados do formulário
 $servidor = filter_input(INPUT_POST, 'servidor', FILTER_SANITIZE_STRING);
 $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
@@ -11,3 +13,5 @@ $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
 // incluir o arquivo que gera o backup
 include_once('aula029-ger-back.php');
+
+header("Location: aula027-form-exp-bd.php");
