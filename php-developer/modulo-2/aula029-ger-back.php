@@ -74,3 +74,29 @@ if (!is_dir($diretorio)) {
     mkdir($diretorio, 0777, true);
     chmod($diretorio, 0777);
 }
+
+//nomde do arquivo de backup
+$data = date('Y-m-d-h-i-s');
+$nome_arquivo = $diretorio."db_backup_".$data;
+
+$handle = fopen($nome_arquivo.'.sql', 'w+');
+fwrite($handle, $result);
+fclose($handle);
+
+//montar o link do arquivo
+$download = $nome_arquivo . '.sql';
+
+//adicionar o header para download
+if (file_exists($download)) {
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate. post-check=0, pre-check=0");
+    header("Cache-Control: private", false);
+    header("Content-Type: application/force-download");
+    header("Content-Disposition: attachment; filename=\"" . basename($download));
+    header("Content-Transfer-Encoding: binary");
+    header("Content-Length: " . filesize($download));
+    readfile($download);
+} else {
+
+}
